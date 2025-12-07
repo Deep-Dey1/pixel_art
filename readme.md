@@ -5,5 +5,5 @@
 </p>
 
 <p align="center">
-	<strong> click the image above to watch a short demo on youtube</strong>
+	<strong> click the above image to watch a short demo on youtube</strong>
 </p>
