@@ -28,9 +28,7 @@ int main(){
     unsigned char* img = stbi_load(path.c_str(),&w,&h,&ch,3);
     if(!img){ cout << "Failed to load image.\n"; return 0;}
 
-    // =============================
-    // Compute scale to fit terminal
-    // =============================
+
     int maxOutRows = TERM_ROWS-2;
     int maxImageRows = maxOutRows*2;
     float scaleX = (float)w/TERM_COLS;
@@ -43,9 +41,7 @@ int main(){
     int leftPad = (TERM_COLS - targetW)/2;
     if(leftPad<0) leftPad=0;
 
-    // =============================
-    // Gamma-correct input
-    // =============================
+
     vector<float> R(w*h),G(w*h),B(w*h);
     for(int i=0;i<w*h;i++){
         R[i]=gammaExpand(img[i*3+0]);
@@ -54,9 +50,7 @@ int main(){
     }
     stbi_image_free(img);
 
-    // =============================
-    // Render with super-sampling
-    // =============================
+
     cout << "\nRendering High-Quality Pixel Art...\n\n";
 
     // Number of source pixels per terminal pixel (higher = smoother)
